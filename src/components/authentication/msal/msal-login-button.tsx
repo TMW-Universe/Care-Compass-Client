@@ -18,5 +18,9 @@ export default function MsalLoginButton() {
       });
   };
 
-  return <Button onClick={onClick}>Login</Button>;
+  return (
+    <Button block onClick={onClick} type="primary">
+      Login
+    </Button>
+  );
 }
