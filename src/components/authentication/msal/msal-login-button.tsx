@@ -1,22 +1,14 @@
-import { useMsal } from "@azure/msal-react";
 import { LoginOutlined } from "@mui/icons-material";
 import { Button } from "@mui/material";
+import { useTmwuAuthentication } from "@tmw-universe/react-tmw-universe-authentication-utils";
 
 export default function MsalLoginButton() {
-  const { instance } = useMsal();
+  const { login } = useTmwuAuthentication({
+    redirectUri: import.meta.env.BASE_URL,
+  });
 
   const onClick = () => {
-    instance
-      .loginPopup({
-        scopes: ["User.Read"],
-        redirectUri: import.meta.env.BASE_URL,
-      })
-      .then((v) => {
-        console.log(v);
-      })
-      .catch((e) => {
-        console.error(e);
-      });
+    login();
   };
 
   return (
