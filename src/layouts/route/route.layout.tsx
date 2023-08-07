@@ -1,4 +1,4 @@
-import styles from "./route-layout.module.css";
+import styles from "./route.layout.module.css";
 
 type Props = {
   children: JSX.Element;

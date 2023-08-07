@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import RouteLayout from "./route-layout";
+import RouteLayout from "../layouts/route/route.layout";
 
 type Props = {
   children: JSX.Element;
