@@ -1,9 +1,7 @@
-import { Card, Space, Typography } from "antd";
 import { useTranslation } from "react-i18next";
 import { Translations } from "../../../i18n/translations.enum";
 import MsalLoginButton from "../msal/msal-login-button";
-
-const { Title } = Typography;
+import { Card, CardActions, CardContent, Typography } from "@mui/material";
 
 export default function Login() {
   const { t } = useTranslation([Translations.login]);
@@ -11,10 +9,12 @@ export default function Login() {
   return (
     <>
       <Card>
-        <Space direction="vertical">
-          <Title level={4}>{t("Title")}</Title>
+        <CardContent>
+          <Typography>{t("Title")}</Typography>
+        </CardContent>
+        <CardActions>
           <MsalLoginButton />
-        </Space>
+        </CardActions>
       </Card>
     </>
   );

@@ -1,5 +1,6 @@
 import { useMsal } from "@azure/msal-react";
-import { Button } from "antd";
+import { LoginOutlined } from "@mui/icons-material";
+import { Button } from "@mui/material";
 
 export default function MsalLoginButton() {
   const { instance } = useMsal();
@@ -19,7 +20,12 @@ export default function MsalLoginButton() {
   };
 
   return (
-    <Button block onClick={onClick} type="primary">
+    <Button
+      startIcon={<LoginOutlined />}
+      onClick={onClick}
+      variant="contained"
+      className="w-full"
+    >
       Login
     </Button>
   );
