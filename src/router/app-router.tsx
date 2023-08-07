@@ -1,20 +1,21 @@
-// import { lazy } from "react";
+import { lazy } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import LoadingRoute from "./loading-route";
 
-// const LoginPage = lazy(() => import("../pages/login.page"));
+const MainPage = lazy(() => import("../pages/main.page"));
 
 export default function AppRouter() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: (
-        <LoadingRoute>
-          <p>aa</p>
-        </LoadingRoute>
-      ),
-    },
-  ]);
+  const router = createBrowserRouter(
+    [
+      {
+        path: "/",
+        element: <MainPage />,
+      },
+    ].map(({ element, ...extra }) => ({
+      ...extra,
+      element: <LoadingRoute>{element}</LoadingRoute>,
+    }))
+  );
 
   return <RouterProvider router={router} />;
 }
