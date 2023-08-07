@@ -1,0 +1,10 @@
+div.layout {
+  display: flex;
+  flex-flow: column;
+  @apply h-screen;
+
+  div.body {
+    flex: 1;
+    overflow: auto;
+  }
+}

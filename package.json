@@ -1,5 +1,6 @@
 {
   "name": "care-compass",
+  "long_name": "Care compass",
   "description": "Care Compass (Personal health management software)",
   "private": true,
   "version": "0.0.1",
@@ -39,6 +40,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "postcss": "^8.4.26",
+    "postcss-nesting": "^12.0.1",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
