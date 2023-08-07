@@ -1,5 +1,5 @@
 import { Menu } from "@mui/icons-material";
-import { AppBar, Button, IconButton, Toolbar, Typography } from "@mui/material";
+import { AppBar, Avatar, IconButton, Toolbar, Typography } from "@mui/material";
 import pj from "../../../package.json";
 import styles from "./app.layout.module.css";
 
@@ -25,7 +25,7 @@ export default function AppLayout({ children }: Props) {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               {pj.long_name}
             </Typography>
-            <Button color="inherit">Login</Button>
+            <Avatar alt="User avatar" />
           </Toolbar>
         </AppBar>
       </div>
