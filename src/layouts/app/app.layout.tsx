@@ -1,9 +1,10 @@
 import { Menu } from "@mui/icons-material";
-import { AppBar, Avatar, IconButton, Toolbar, Typography } from "@mui/material";
+import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
 import pj from "../../../package.json";
 import styles from "./app.layout.module.css";
 import { useTmwuAccounts } from "@tmw-universe/react-tmw-universe-authentication-utils";
 import classNames from "classnames";
+import AccountAvatar from "../../components/authentication/account/account-avatar";
 
 type Props = {
   children: JSX.Element;
@@ -31,7 +32,7 @@ export default function AppLayout({ children }: Props) {
             </Typography>
             <span className={classNames(["flex", "gap-2", "items-center"])}>
               <Typography>{activeAccount.name}</Typography>
-              <Avatar alt="User avatar" />
+              <AccountAvatar />
             </span>
           </Toolbar>
         </AppBar>

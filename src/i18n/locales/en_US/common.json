@@ -1,0 +1,11 @@
+{
+    "user": {
+        "avatar": {
+            "actions": {
+                "logout": {
+                    "Text": "Logout"
+                }
+            }
+        }
+    }
+}
