@@ -4,7 +4,7 @@ import pj from "../../../package.json";
 import styles from "./app.layout.module.css";
 import { useTmwuAccounts } from "@tmw-universe/react-tmw-universe-authentication-utils";
 import classNames from "classnames";
-import AccountAvatar from "../../components/authentication/account/account-avatar";
+import AccountAvatarMenu from "../../components/authentication/account/account-avatar-menu";
 
 type Props = {
   children: JSX.Element;
@@ -32,7 +32,7 @@ export default function AppLayout({ children }: Props) {
             </Typography>
             <span className={classNames(["flex", "gap-2", "items-center"])}>
               <Typography>{activeAccount.name}</Typography>
-              <AccountAvatar />
+              <AccountAvatarMenu />
             </span>
           </Toolbar>
         </AppBar>

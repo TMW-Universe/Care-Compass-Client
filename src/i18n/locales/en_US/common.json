@@ -4,6 +4,9 @@
             "actions": {
                 "logout": {
                     "Text": "Logout"
+                },
+                "add-account": {
+                    "Text": "Add account"
                 }
             }
         }
