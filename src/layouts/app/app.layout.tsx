@@ -7,6 +7,8 @@ import classNames from "classnames";
 import AccountAvatarMenu from "../../components/authentication/account/account-avatar-menu";
 import { useState } from "react";
 import SideMenu from "../../components/layout/side-menu/side-menu";
+import { useNavigate } from "react-router-dom";
+import { routes } from "../../router/routes";
 
 type Props = {
   children: JSX.Element;
@@ -14,6 +16,7 @@ type Props = {
 
 export default function AppLayout({ children }: Props) {
   const { activeAccount } = useTmwuAccounts();
+  const navigate = useNavigate();
 
   const [isSideMenuVisible, setSideMenuVisibility] = useState(false);
 
@@ -32,7 +35,12 @@ export default function AppLayout({ children }: Props) {
             >
               <Menu />
             </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ flexGrow: 1 }}
+              onClick={() => navigate(routes.MAIN_PAGE())}
+            >
               {pj.long_name}
             </Typography>
             <span className={classNames(["flex", "gap-2", "items-center"])}>
@@ -48,7 +56,7 @@ export default function AppLayout({ children }: Props) {
         open={isSideMenuVisible}
         onClose={() => setSideMenuVisibility(false)}
       >
-        <SideMenu />
+        <SideMenu onClose={() => setSideMenuVisibility(false)} />
       </Drawer>
     </div>
   );
