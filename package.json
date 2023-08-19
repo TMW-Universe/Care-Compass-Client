@@ -21,6 +21,7 @@
     "@mui/icons-material": "^5.14.3",
     "@mui/material": "^5.14.3",
     "@tmw-universe/react-tmw-universe-authentication-utils": "^1.0.0",
+    "axios": "^1.4.0",
     "classnames": "^2.3.2",
     "i18next": "^23.4.4",
     "i18next-browser-languagedetector": "^7.1.0",
