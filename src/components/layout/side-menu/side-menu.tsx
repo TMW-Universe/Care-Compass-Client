@@ -1,4 +1,4 @@
-import { HomeOutlined, MonitorWeightOutlined } from "@mui/icons-material";
+import { BarChartOutlined, HomeOutlined } from "@mui/icons-material";
 import {
   Divider,
   ListItemIcon,
@@ -53,11 +53,11 @@ export default function SideMenu({ onClose }: Props) {
     },
     {
       type: "item",
-      key: "weight-monitor",
-      icon: <MonitorWeightOutlined />,
+      key: "physical-stats",
+      icon: <BarChartOutlined />,
       onClick: {
         type: "route",
-        route: routes.WEIGHT_MONITOR(),
+        route: routes.PHYSICAL_STATS(),
       },
     },
   ];

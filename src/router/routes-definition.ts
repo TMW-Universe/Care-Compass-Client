@@ -6,8 +6,8 @@ const routes_definition: Route[] = [
     loader: () => import("../pages/main.page"),
   },
   {
-    path: "/weight-monitor",
-    loader: () => import("../pages/weight/weight-monitor.page"),
+    path: "/physical-stats",
+    loader: () => import("../pages/stats/physical-stats.page"),
   },
 ];
 
