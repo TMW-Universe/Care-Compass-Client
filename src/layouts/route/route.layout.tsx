@@ -1,3 +1,4 @@
+import { Container } from "@mui/material";
 import styles from "./route.layout.module.css";
 
 type Props = {
@@ -5,5 +6,9 @@ type Props = {
 };
 
 export default function RouteLayout({ children }: Props) {
-  return <div className={styles.container}>{children}</div>;
+  return (
+    <Container>
+      <div className={styles.container}>{children}</div>
+    </Container>
+  );
 }
