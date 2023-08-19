@@ -1,1 +1,11 @@
-{}
+{
+    "side-menu": {
+        "menu": {
+            "items": {
+                "weight-monitor": {
+                    "Label": "Weight monitor"
+                }
+            }
+        }
+    }
+}

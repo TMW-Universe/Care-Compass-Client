@@ -5,6 +5,8 @@ import styles from "./app.layout.module.css";
 import { useTmwuAccounts } from "@tmw-universe/react-tmw-universe-authentication-utils";
 import classNames from "classnames";
 import AccountAvatarMenu from "../../components/authentication/account/account-avatar-menu";
+import { useState } from "react";
+import SideMenu from "../../components/layout/side-menu/side-menu";
 
 type Props = {
   children: JSX.Element;
@@ -12,6 +14,8 @@ type Props = {
 
 export default function AppLayout({ children }: Props) {
   const { activeAccount } = useTmwuAccounts();
+
+  const [isSideMenuVisible, setSideMenuVisibility] = useState(false);
 
   return (
     <div className={styles.layout}>
@@ -24,6 +28,7 @@ export default function AppLayout({ children }: Props) {
               color="inherit"
               aria-label="menu"
               sx={{ mr: 2 }}
+              onClick={() => setSideMenuVisibility(true)}
             >
               <Menu />
             </IconButton>
@@ -39,8 +44,11 @@ export default function AppLayout({ children }: Props) {
       </div>
       <div className={styles.body}>{children}</div>
 
-      <Drawer>
-        
+      <Drawer
+        open={isSideMenuVisible}
+        onClose={() => setSideMenuVisibility(false)}
+      >
+        <SideMenu />
       </Drawer>
     </div>
   );
