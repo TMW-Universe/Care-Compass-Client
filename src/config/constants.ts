@@ -1,6 +1,7 @@
 export default {
   api: {
-    host: import.meta.env.VITE_API_HOST,
+    host: import.meta.env.VITE_API_HOST as string,
+    port: typeof import.meta.env.VITE_API_PORT === 'string' ? +import.meta.env.VITE_API_PORT : 5001,
   },
   msal: {
     loginConfig: {

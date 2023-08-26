@@ -52,7 +52,7 @@ export async function request<T>(
 
   const protocol = options.protocol ?? RequestProtocol.http;
   const host = options.host ?? constants.api.host;
-  const port = options.port ?? 5001;
+  const port = options.port ?? constants.api.port;
 
   const url = options.rawUrl
     ? route
