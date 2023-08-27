@@ -9,7 +9,7 @@ import { BrowserRouter } from "react-router-dom";
 import AppLayout from "./layouts/app/app.layout";
 import UserPlatformSettingsProvider from "./providers/platform/user-platform-settings.provider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { RequireAccessTokenComponent } from "@tmw-universe/react-tmw-universe-authentication-utils";
+import { AccessTokenProvider } from "@tmw-universe/react-tmw-universe-authentication-utils";
 
 const queryClient = new QueryClient();
 
@@ -18,7 +18,7 @@ export default function App() {
     <>
       <QueryClientProvider client={queryClient}>
         <AuthenticatedTemplate>
-          <RequireAccessTokenComponent waitingForToken={<>Fetching token</>}>
+          <AccessTokenProvider>
             <UserPlatformSettingsProvider>
               <BrowserRouter>
                 <AppLayout>
@@ -26,7 +26,7 @@ export default function App() {
                 </AppLayout>
               </BrowserRouter>
             </UserPlatformSettingsProvider>
-          </RequireAccessTokenComponent>
+          </AccessTokenProvider>
         </AuthenticatedTemplate>
         <UnauthenticatedTemplate>
           <LoginPage />

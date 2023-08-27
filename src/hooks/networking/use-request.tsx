@@ -5,7 +5,7 @@ import {
 } from "../../services/networking/requester";
 import { request as requestFunction } from "../../services/networking/requester";
 import { HttpException } from "../../services/networking/types/http-exception";
-import { useTmwuAccounts } from "@tmw-universe/react-tmw-universe-authentication-utils";
+import { useAccessToken } from "@tmw-universe/react-tmw-universe-authentication-utils";
 import useError from "../errors/use-error";
 
 export type UseRequestOptions = {
@@ -22,14 +22,12 @@ type HandledRequestOptions<T, R> = {
 export default function useRequest() {
   const { showError } = useError();
 
-  const { activeAccount } = useTmwuAccounts();
-
-  console.log({ activeAccount });
+  const { token } = useAccessToken();
 
   async function request<T>(url: string, options?: UseRequestOptions) {
     try {
       return await requestFunction<T>(url, {
-        authToken: options?.requestOptions?.authToken ?? activeAccount.idToken,
+        authToken: options?.requestOptions?.authToken ?? token?.accessToken,
         ...options?.requestOptions,
       });
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
