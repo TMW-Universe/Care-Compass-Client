@@ -56,7 +56,7 @@ export async function request<T>(
 
   const url = options.rawUrl
     ? route
-    : `${protocol}://${host}:${port}${
+    : `${protocol}://${host}:${port}/api${
         options.apiRoute ? `/${options.apiRoute}` : ""
       }/${route}`;
 

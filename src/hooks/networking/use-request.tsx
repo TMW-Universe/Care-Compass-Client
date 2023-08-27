@@ -24,10 +24,12 @@ export default function useRequest() {
 
   const { activeAccount } = useTmwuAccounts();
 
+  console.log({ activeAccount });
+
   async function request<T>(url: string, options?: UseRequestOptions) {
     try {
       return await requestFunction<T>(url, {
-        authToken: options?.requestOptions?.authToken ?? "TOKEN",
+        authToken: options?.requestOptions?.authToken ?? activeAccount.idToken,
         ...options?.requestOptions,
       });
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
