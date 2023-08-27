@@ -30,9 +30,8 @@ export default function useRequest() {
         authToken: options?.requestOptions?.authToken ?? token?.accessToken,
         ...options?.requestOptions,
       });
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (e: any) {
-      const error: HttpException = e;
+    } catch (e) {
+      const error = e as HttpException;
 
       if (!(options?.handleErrors === false)) {
         for (const ignoreError of options?.ignoreErrorsOnNotificate ?? []) {
@@ -63,8 +62,7 @@ export default function useRequest() {
         !!response &&
         (await handledRequestOptions.onSuccess(response))
       );
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (e: any) {
+    } catch (e) {
       return (
         handledRequestOptions?.onError &&
         (await handledRequestOptions.onError(e as HttpException))
