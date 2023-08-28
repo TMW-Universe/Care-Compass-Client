@@ -19,7 +19,7 @@
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.8",
     "@mui/icons-material": "^5.14.3",
-    "@mui/material": "^5.14.3",
+    "@mui/material": "^5.14.6",
     "@tanstack/react-query": "^4.32.6",
     "@tmw-universe/react-tmw-universe-authentication-utils": "^1.2.2",
     "axios": "^1.4.0",
