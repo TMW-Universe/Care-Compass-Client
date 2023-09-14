@@ -2,7 +2,6 @@ import { Menu } from "@mui/icons-material";
 import { AppBar, Drawer, IconButton, Toolbar, Typography } from "@mui/material";
 import pj from "../../../package.json";
 import styles from "./app.layout.module.css";
-import { useTmwuAccounts } from "@tmw-universe/react-tmw-universe-authentication-utils";
 import classNames from "classnames";
 import { useState } from "react";
 import SideMenu from "../../components/layout/side-menu/side-menu";
