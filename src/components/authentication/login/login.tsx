@@ -14,6 +14,11 @@ export default function Login() {
 
   const { login } = useTmwuAuthentication();
 
+  const log = async () => {
+    const token = await login();
+    console.log(token);
+  };
+
   return (
     <>
       <Card>
@@ -23,7 +28,7 @@ export default function Login() {
         <CardActions>
           <Button
             onClick={() => {
-              login();
+              log();
             }}
           >
             Login

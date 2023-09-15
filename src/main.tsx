@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <TmwuAuthProvider
       options={{
-        host: "http://localhost:8002",
+        authHost: "http://localhost:8002",
       }}
     >
       <App />

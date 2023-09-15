@@ -1,7 +1,3 @@
-import {
-  AuthenticatedTemplate,
-  UnauthenticatedTemplate,
-} from "@azure/msal-react";
 import LoginPage from "./pages/login.page";
 import Router from "./router/router";
 import routes_definition from "./router/routes-definition";
@@ -16,7 +12,7 @@ export default function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <AuthenticatedTemplate>
+        <Authenticated>
           <UserPlatformSettingsProvider>
             <BrowserRouter>
               <AppLayout>
@@ -24,10 +20,10 @@ export default function App() {
               </AppLayout>
             </BrowserRouter>
           </UserPlatformSettingsProvider>
-        </AuthenticatedTemplate>
-        <UnauthenticatedTemplate>
+        </Authenticated>
+        <NotAuthenticated>
           <LoginPage />
-        </UnauthenticatedTemplate>
+        </NotAuthenticated>
       </QueryClientProvider>
     </>
   );
