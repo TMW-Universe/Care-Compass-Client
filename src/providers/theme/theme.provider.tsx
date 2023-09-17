@@ -12,16 +12,14 @@ type Props = {
 };
 
 export default function ThemeProvider({ children }: Props) {
-  const {
-    account: { preferences },
-  } = useTwmuAccount();
+  const { account } = useTwmuAccount();
 
   const materialTheme = createTheme({
     palette: {
       primary: {
-        main: preferences?.color ?? deepPurple[700],
+        main: account?.preferences?.color ?? deepPurple[700],
       },
-      mode: preferences?.theme === Theme.DARK ? "dark" : "light",
+      mode: account?.preferences?.theme === Theme.DARK ? "dark" : "light",
     },
   });
 

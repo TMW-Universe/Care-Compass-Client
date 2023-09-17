@@ -10,6 +10,9 @@ import "@fontsource/roboto/700.css";
 import "./reset.css";
 import "./index.css";
 import Providers from "./providers/providers.tsx";
+import { i18nsetup } from "./i18n/i18n.setup.ts";
+
+i18nsetup();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
