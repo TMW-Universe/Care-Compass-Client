@@ -10,18 +10,14 @@ import "@fontsource/roboto/700.css";
 
 import "./reset.css";
 import "./index.css";
-import TmwuAuthProvider from "@tmw-universe/react-tmw-universe-authentication-utils/dist/providers/tmwu-auth.provider";
+import Providers from "./providers/providers.tsx";
 
 i18nsetup();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <TmwuAuthProvider
-      options={{
-        authHost: "http://localhost:8002",
-      }}
-    >
+    <Providers>
       <App />
-    </TmwuAuthProvider>
+    </Providers>
   </React.StrictMode>
 );

@@ -7,13 +7,14 @@ import { useState } from "react";
 import SideMenu from "../../components/layout/side-menu/side-menu";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../router/routes";
+import { useTwmuAccount } from "@tmw-universe/react-tmw-universe-authentication-utils";
 
 type Props = {
   children: JSX.Element;
 };
 
 export default function AppLayout({ children }: Props) {
-  const { activeAccount } = useTmwuAccounts();
+  const { account } = useTwmuAccount();
   const navigate = useNavigate();
 
   const [isSideMenuVisible, setSideMenuVisibility] = useState(false);
@@ -42,7 +43,7 @@ export default function AppLayout({ children }: Props) {
               {pj.long_name}
             </Typography>
             <span className={classNames(["flex", "gap-2", "items-center"])}>
-              <Typography>{activeAccount.name}</Typography>
+              <Typography>{account.name}</Typography>
             </span>
           </Toolbar>
         </AppBar>

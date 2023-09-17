@@ -5,8 +5,8 @@ import {
 } from "../../services/networking/requester";
 import { request as requestFunction } from "../../services/networking/requester";
 import { HttpException } from "../../services/networking/types/http-exception";
-import { useAccessToken } from "@tmw-universe/react-tmw-universe-authentication-utils";
 import useError from "../errors/use-error";
+import { useTwmuAccount } from "@tmw-universe/react-tmw-universe-authentication-utils";
 
 export type UseRequestOptions = {
   requestOptions?: RequestOptions;
@@ -22,12 +22,12 @@ type HandledRequestOptions<T, R> = {
 export default function useRequest() {
   const { showError } = useError();
 
-  const { token } = useAccessToken();
+  const { accessToken: token } = useTwmuAccount();
 
   async function request<T>(url: string, options?: UseRequestOptions) {
     try {
       return await requestFunction<T>(url, {
-        authToken: options?.requestOptions?.authToken ?? token?.accessToken,
+        authToken: options?.requestOptions?.authToken ?? token,
         ...options?.requestOptions,
       });
     } catch (e) {
