@@ -12,12 +12,7 @@ import { useTmwuAuthentication } from "@tmw-universe/react-tmw-universe-authenti
 export default function Login() {
   const { t } = useTranslation([Translations.login]);
 
-  const { login } = useTmwuAuthentication();
-
-  const log = async () => {
-    const token = await login();
-    console.log(token);
-  };
+  const { login, isAuthenticating } = useTmwuAuthentication();
 
   return (
     <>
@@ -27,8 +22,9 @@ export default function Login() {
         </CardContent>
         <CardActions>
           <Button
+            disabled={isAuthenticating}
             onClick={() => {
-              log();
+              login();
             }}
           >
             Login

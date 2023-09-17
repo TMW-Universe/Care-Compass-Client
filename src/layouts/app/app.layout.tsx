@@ -7,7 +7,10 @@ import { useState } from "react";
 import SideMenu from "../../components/layout/side-menu/side-menu";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../router/routes";
-import { useTwmuAccount } from "@tmw-universe/react-tmw-universe-authentication-utils";
+import {
+  useTmwuAuthentication,
+  useTwmuAccount,
+} from "@tmw-universe/react-tmw-universe-authentication-utils";
 
 type Props = {
   children: JSX.Element;
@@ -15,6 +18,7 @@ type Props = {
 
 export default function AppLayout({ children }: Props) {
   const { account } = useTwmuAccount();
+  const { logout } = useTmwuAuthentication();
   const navigate = useNavigate();
 
   const [isSideMenuVisible, setSideMenuVisibility] = useState(false);
@@ -42,7 +46,10 @@ export default function AppLayout({ children }: Props) {
             >
               {pj.long_name}
             </Typography>
-            <span className={classNames(["flex", "gap-2", "items-center"])}>
+            <span
+              onClick={() => logout()}
+              className={classNames(["flex", "gap-2", "items-center"])}
+            >
               <Typography>{account.name}</Typography>
             </span>
           </Toolbar>
