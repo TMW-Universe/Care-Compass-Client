@@ -2,10 +2,10 @@ import classNames from "classnames";
 import Weight from "../common/renderers/values/weight";
 import PhysicalStatsCard from "./physical-stats-card";
 import Height from "../common/renderers/values/height";
-import { usePhysicalStatsQuery } from "../../hooks/api/physical-stats/use-physical-stats.query";
+import { useLatestPhysicalStatsQuery } from "../../hooks/api/physical-stats/use-latest-physical-stats.query";
 
 export default function PhysicalStats() {
-  const { data: stats, isLoading } = usePhysicalStatsQuery();
+  const { data: stats, isLoading } = useLatestPhysicalStatsQuery();
 
   return (
     <>
