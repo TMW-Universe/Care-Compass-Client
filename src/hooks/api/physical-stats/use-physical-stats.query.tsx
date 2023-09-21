@@ -5,7 +5,12 @@ export function usePhysicalStatsQuery() {
   const { request } = useRequest();
 
   return useQuery({
-    queryKey: ["physical-stats"],
-    queryFn: async () => await request("/physical-stats"),
+    queryKey: ["metrics", "all"],
+    queryFn: async () => (await request<StatsResponse>("metrics/all"))?.data,
   });
+}
+
+interface StatsResponse {
+  weight?: number;
+  height?: number;
 }

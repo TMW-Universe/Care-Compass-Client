@@ -2,14 +2,11 @@ import axios, { AxiosError, AxiosRequestConfig, ResponseType } from "axios";
 import { ExceptionSection } from "./types/http-exception";
 import { RequestHeader } from "./types/request-header";
 import { RequestMethod } from "./types/request-method";
-import { RequestProtocol } from "./types/request-protocol";
 import constants from "../../config/constants";
 
 export type RequestOptions = {
   apiRoute?: string;
   host?: string;
-  protocol?: RequestProtocol;
-  port?: number;
   method?: RequestMethod;
   payload?: object;
   headers?: RequestHeader[];
@@ -50,15 +47,11 @@ export async function request<T>(
 ) {
   const options = requestOptions ?? {};
 
-  const protocol = options.protocol ?? RequestProtocol.http;
   const host = options.host ?? constants.api.host;
-  const port = options.port ?? constants.api.port;
 
   const url = options.rawUrl
     ? route
-    : `${protocol}://${host}:${port}/api${
-        options.apiRoute ? `/${options.apiRoute}` : ""
-      }/${route}`;
+    : `${host}/api${options.apiRoute ? `/${options.apiRoute}` : ""}/${route}`;
 
   const headers: Record<string, string> = {};
 
@@ -72,7 +65,7 @@ export async function request<T>(
 
   // Set auth header
   if (options.authToken)
-    headers["Authorization"] = "Bearer " + options.authToken;
+    headers["authorization"] = "Bearer " + options.authToken;
 
   // Form data
   const formData = options.files ? new FormData() : undefined;
