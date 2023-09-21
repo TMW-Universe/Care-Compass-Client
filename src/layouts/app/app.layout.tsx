@@ -50,7 +50,9 @@ export default function AppLayout({ children }: Props) {
               onClick={() => logout()}
               className={classNames(["flex", "gap-2", "items-center"])}
             >
-              <Typography>{account.name}</Typography>
+              <Typography>
+                {account?.name} {account?.firstSurname}
+              </Typography>
             </span>
           </Toolbar>
         </AppBar>

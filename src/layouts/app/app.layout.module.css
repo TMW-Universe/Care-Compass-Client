@@ -6,5 +6,6 @@ div.layout {
   div.body {
     flex: 1;
     overflow: auto;
+    margin-top: 1.5em;
   }
 }

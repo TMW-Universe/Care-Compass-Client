@@ -3,6 +3,9 @@
         "cards": {
             "weight": {
                 "Title": "Weight"
+            },
+            "height": {
+                "Title": "Height"
             }
         }
     }

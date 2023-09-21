@@ -1,12 +1,13 @@
 import { Route } from "./router";
+import { routes } from "./routes";
 
 const routes_definition: Route[] = [
   {
-    path: "/",
+    path: routes.MAIN_PAGE(),
     loader: () => import("../pages/main.page"),
   },
   {
-    path: "/physical-stats",
+    path: routes.PHYSICAL_STATS(),
     loader: () => import("../pages/stats/physical-stats.page"),
   },
 ];
