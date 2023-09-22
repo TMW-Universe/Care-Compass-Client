@@ -5,8 +5,8 @@
                 "main-page": {
                     "Label": "Main page"
                 },
-                "physical-stats": {
-                    "Label": "Physical stats"
+                "physical-profile": {
+                    "Label": "Physical profile"
                 }
             }
         }

@@ -1,4 +1,4 @@
-import { BarChartOutlined, HomeOutlined } from "@mui/icons-material";
+import { HomeOutlined, Person } from "@mui/icons-material";
 import {
   Divider,
   ListItemIcon,
@@ -53,11 +53,11 @@ export default function SideMenu({ onClose }: Props) {
     },
     {
       type: "item",
-      key: "physical-stats",
-      icon: <BarChartOutlined />,
+      key: "physical-profile",
+      icon: <Person />,
       onClick: {
         type: "route",
-        route: routes.PHYSICAL_STATS(),
+        route: routes.PHYSICAL_PROFILE(),
       },
     },
   ];

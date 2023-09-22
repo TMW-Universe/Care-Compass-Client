@@ -7,8 +7,8 @@ const routes_definition: Route[] = [
     loader: () => import("../pages/main.page"),
   },
   {
-    path: routes.PHYSICAL_STATS(),
-    loader: () => import("../pages/stats/physical-stats.page"),
+    path: routes.PHYSICAL_PROFILE(),
+    loader: () => import("../pages/physical-profile/physical-profile.page"),
   },
 ];
 

@@ -1,12 +1,13 @@
 import useRequest from "../../networking/use-request";
 import { useQuery } from "@tanstack/react-query";
 
-export function useLatestPhysicalStatsQuery() {
+export function useMyPhysicalProfileQuery() {
   const { request } = useRequest();
 
   return useQuery({
-    queryKey: ["metrics", "latest"],
-    queryFn: async () => (await request<StatsResponse>("metrics/latest"))?.data,
+    queryKey: ["physical-profile"],
+    queryFn: async () =>
+      (await request<StatsResponse>("physical-profile"))?.data,
   });
 }
 
