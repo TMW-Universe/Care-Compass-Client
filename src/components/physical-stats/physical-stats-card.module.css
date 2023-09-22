@@ -3,3 +3,9 @@ div.value {
   text-align: center;
   font-size: 2em;
 }
+
+div.text-container {
+  * {
+    margin: 0px;
+  }
+}
